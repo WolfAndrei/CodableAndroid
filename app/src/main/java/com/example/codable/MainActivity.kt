@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 		
 		exampleOf("Forward cast") {
 			val appInfo = AppInfoConfig()
+			appInfo.deviceUUID = "hello, world"
 			println("AppInfoConfig: ${appInfo.encode()}")
 		}
 		
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 			println("AppInfoConfig authToken: ${appInfo?.authToken}")
 			println("AppInfoConfig cityInfo-textId: ${appInfo?.cityInfo?.cityTextId}")
 			println("AppInfoConfig deviceUUID: ${appInfo?.deviceUUID}")
+			appInfo?.appInfoConfigVersion = 3
+			appInfo?.cityInfo?.cityTextId = "gomel"
 			println("AppInfoConfig back to string: ${appInfo?.encode()}")
 		}
 	}

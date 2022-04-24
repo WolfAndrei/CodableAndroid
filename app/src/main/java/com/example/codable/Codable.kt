@@ -16,7 +16,8 @@ import kotlin.reflect.jvm.jvmErasure
 
 open class Codable {
 	private fun getCodingInfo():  Map<String?, Triple<String?, KType?, Any?>> {
-		val codingKeysEnum = this::class.java.declaredClasses.filterNot { it.isEnum && it.name == CODING_KEYS_ENUM_NAME }.firstOrNull()
+		val codingKeysEnum =
+			this::class.java.declaredClasses.firstOrNull { it.isEnum && it.simpleName == CODING_KEYS_ENUM_NAME }
 		val fields = codingKeysEnum?.fields
 		val classFields = this::class.declaredMemberProperties
 		
@@ -63,7 +64,7 @@ open class Codable {
 		private const val CODING_KEYS_ENUM_NAME = "CodingKeys"
 		
 		private fun getCodingInfo(type: KClass<*>): Map<String, Pair<String?, KType?>> {
-			val codingKeysEnum = type.java.declaredClasses.filterNot { it.isEnum && it.name == CODING_KEYS_ENUM_NAME }.firstOrNull()
+			val codingKeysEnum = type.java.declaredClasses.firstOrNull { it.isEnum && it.simpleName == CODING_KEYS_ENUM_NAME }
 			val fields = codingKeysEnum?.fields
 			val classFields = type.members
 			val dictionary = fields?.associate { field ->

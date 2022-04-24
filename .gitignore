@@ -1,0 +1,48 @@
+# Android Studio captures folder
+captures/
+
+# OS-specific files
+/.idea
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# External native build folder generated in Android Studio 2.2 and later
+.externalNativeBuild
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Android Studio
+.idea
+.gradle
+/*/local.properties
+/*/out
+/*/*/build
+build
+/*/*/production
+*.iml
+*.iws
+*.ipr
+*~
+*.swp
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Gradle files
+.gradle/
+build/
+
+# Build files
+debug/
+release/
+
+# Log Files
+*.log
+
+# Keystore files
+*.jks
+*.keystore
